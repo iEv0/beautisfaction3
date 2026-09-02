@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Prata&amp;family=Onest:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#15161F; font-family:'Onest',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#360202; text-decoration:none; }
+  a:hover { color:#1E1C2E; }
+  @keyframes bf-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  .bf-scroll::-webkit-scrollbar { display:none; }
+  [data-reveal] { opacity:1; }
+</style>
+</helmet>
+<div style="width:420px;margin:0 auto;background:#F2EEE2;color:#1E1C2E;font-family:'Onest',sans-serif;position:relative;overflow:hidden">
+
+  <div style="position: absolute; inset: 0; pointer-events: none; z-index: 6; opacity: 0.035; background-image: url('data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22&gt;&lt;filter id=%22n%22&gt;&lt;feTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22/&gt;&lt;/filter&gt;&lt;rect width=%22160%22 height=%22160%22 filter=%22url(%23n)%22/&gt;&lt;/svg&gt;'); left: 7px; top: 2px"></div>
+
+  <section style="position:relative;background:#1E1C2E;color:#F2EEE2;padding:21px 13px 0;overflow:hidden">
+    <div style="position:absolute;left:0;right:0;top:0;height:640px;background-image:url('assets/ref-hero-bg.png');background-size:cover;background-position:center 30%;filter:grayscale(0.7) contrast(1.08) brightness(0.85)"></div>
+    <div style="position:absolute;left:0;right:0;top:0;height:640px;background:linear-gradient(180deg,rgba(30,28,46,0.42) 0%,rgba(30,28,46,0.55) 42%,rgba(30,28,46,0.88) 78%,#1E1C2E 100%)"></div>
+
+    <div style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <img src="assets/crest-cream.png" alt="BEAUTY MBA" style="width:80px;height:80px;object-fit:contain;margin:-10px 0 -10px -10px;opacity:0.9">
+        <div style="font-size:10.5px;font-weight:300;line-height:1.45;letter-spacing:0.01em;opacity:0.8">3-денний практичний<br>онлайн-інтенсив</div>
+      </div>
+      <div style="text-align:right;font-size:11px;font-weight:300;line-height:1.5;letter-spacing:0.01em;opacity:0.8;white-space:nowrap">{{ eventDate }}<br>{{ eventTime }} по Києву</div>
+    </div>
+
+    <div style="position:relative;text-align:center;margin-top:34px">
+      <h1 style="font-family:'Prata',serif;font-weight:400;font-size:37px;line-height:0.96;letter-spacing:-0.03em;margin:0;text-transform:uppercase;white-space:nowrap">Beautisfaction<span style="color:#9BA1BA"> 3.0</span></h1>
+      <div style="font-size:11px;font-weight:300;letter-spacing:0.16em;text-transform:uppercase;color:#9BA1BA;margin-top:12px">з Валерією Пономарьовою</div>
+    </div>
+
+    <div style="position:relative;margin-top:6px;display:flex;justify-content:center">
+      <div style="position:relative;width:206px;height:auto;overflow:visible">
+        <img src="assets/lera-hero.png" alt="Валерія Пономарьова" style="display:block;width:206px;height:auto;object-fit:contain;filter:blur(16px);opacity:0.45">
+        <img src="assets/lera-hero.png" alt="" style="position:absolute;left:0;top:0;display:block;width:206px;height:auto;object-fit:contain;-webkit-mask-image:radial-gradient(72% 68% at 50% 32%,#000 46%,rgba(0,0,0,0.85) 64%,rgba(0,0,0,0.4) 82%,transparent 98%);mask-image:radial-gradient(72% 68% at 50% 32%,#000 46%,rgba(0,0,0,0.85) 64%,rgba(0,0,0,0.4) 82%,transparent 98%)">
+        <div style="position:absolute;left:-20px;right:-20px;bottom:-20px;height:212px;background:linear-gradient(180deg,rgba(30,28,46,0) 0%,rgba(30,28,46,0.55) 22%,#1E1C2E 54%,#1E1C2E 100%)"></div>
+      </div>
+    </div>
+
+    <div style="position:relative;z-index:3;margin:-150px 2px 0;background:rgba(30,28,46,0.72);border:1px solid rgba(242,238,226,0.55);border-radius:3px;padding:18px 18px 20px;text-align:center;backdrop-filter:blur(3px)">
+        <div style="position:absolute;inset:4px;border:1px solid rgba(242,238,226,0.22);border-radius:2px;pointer-events:none"></div>
+        <p style="position:relative;margin:0;font-family:'Prata',serif;font-size:17px;line-height:1.34;letter-spacing:-0.01em"><span style="color:#C9A961">Система салону в «несезон»:</span> як зібрати команду, стійку до будь-яких осінніх викликів та збільшити базу постійних клієнтів</p>
+    </div>
+
+    <button onClick="{{ openModal }}" style="position:relative;width:100%;margin-top:12px;border:0;border-radius:4px;background:#F2EEE2;color:#1E1C2E;font-family:'Onest',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;padding:20px;cursor:pointer;transition:background 0.3s ease,color 0.3s ease" style-hover="background:#360202;color:#F2EEE2"><span style="display:inline-flex;align-items:baseline;gap:7px;justify-content:center;flex-wrap:wrap">Взяти участь за<span style="text-decoration:line-through;opacity:0.5;font-weight:400">€186</span><span style="font-weight:600">7€</span>→</span></button>
+
+    <div style="position:relative;margin-top:16px;text-align:center">
+      <div style="font-size:11px;line-height:1.5;font-weight:300;color:#9BA1BA">Знижка -96% та подарунки при оплаті до кінця таймера</div>
+      <div style="font-family:'Prata',serif;font-size:34px;line-height:1;letter-spacing:-0.02em;margin-top:10px;display:flex;align-items:baseline;gap:3px;justify-content:center">
+        <span>{{ mm }}</span><span style="color:#9BA1BA">:</span><span>{{ ss }}</span><span style="color:#9BA1BA">:</span><span style="color:#9BA1BA;font-size:20px">{{ ms }}</span>
+      </div>
+      <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(155,161,186,0.65);margin-top:16px">Понад 115 учасниць вже пройшли інтенсив</div>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:18px">
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-elect.jpg" alt="G.Bar" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-want.jpg" alt="Want Nail Studio" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-wo.jpg" alt="WO! Beauty" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-vona.jpg" alt="Nail On" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-glitz.jpg" alt="Glitz" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-nailon.jpg" alt="Vona Nails" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-gbar.jpg" alt="Poruch" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-fleur.jpg" alt="Fleur Beauty Home" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
+          <img src="assets/logo-poruch.jpg" alt="Elect Beauty Studio" style="display:block;width:100%;height:100%;object-fit:cover">
+        </div>
+      </div>
+    </div>
+
+    <div style="position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:26px;padding-bottom:34px">
+      <p style="margin:0;font-size:11.5px;line-height:1.45;font-weight:300;color:#F2EEE2;opacity:0.85;border-top:1px solid rgba(155,161,186,0.5);padding-top:10px">щоб команда трималася не тільки на тобі особисто</p>
+      <p style="margin:0;font-size:11.5px;line-height:1.45;font-weight:300;color:#F2EEE2;opacity:0.85;border-top:1px solid rgba(155,161,186,0.5);padding-top:10px">щоб перестати губити людей через перевантаження, яке зараз відчуває кожна</p>
+      <p style="margin:0;font-size:11.5px;line-height:1.45;font-weight:300;color:#F2EEE2;opacity:0.85;border-top:1px solid rgba(155,161,186,0.5);padding-top:10px">щоб зустріти сезон із системою, а не сам на сам з усім навколо</p>
+    </div>
+  </section>
+
+  <sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:420px;max-width:100%;z-index:40;padding:10px 13px;background:linear-gradient(180deg,rgba(242,238,226,0) 0%,#F2EEE2 30%)">
+      <button onClick="{{ openModal }}" style="width:100%;border:0;border-radius:4px;background:#360202;color:#F2EEE2;font-family:'Onest',sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;padding:16px;cursor:pointer;box-shadow:0 4px 18px rgba(22,21,20,0.28)">Зареєструватись за 7€ →</button>
+    </div>
+  </sc-if>
+
+  <div style="background:#1E1C2E;border-top:1px solid rgba(155,161,186,0.4);border-bottom:1px solid rgba(155,161,186,0.4);padding:11px 0;overflow:hidden">
+    <div style="display:flex;width:max-content;animation:bf-marquee 30s linear infinite">
+      <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9BA1BA;font-weight:400;padding-right:16px">Команда&nbsp;·&nbsp;Сервіс&nbsp;·&nbsp;Маркетинг&nbsp;·&nbsp;Клієнти&nbsp;·&nbsp;Продажі&nbsp;·&nbsp;Система&nbsp;·&nbsp;</span>
+      <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9BA1BA;font-weight:400;padding-right:16px">Команда&nbsp;·&nbsp;Сервіс&nbsp;·&nbsp;Маркетинг&nbsp;·&nbsp;Клієнти&nbsp;·&nbsp;Продажі&nbsp;·&nbsp;Система&nbsp;·&nbsp;</span>
+    </div>
+  </div>
+
+  <section data-reveal="1" style="padding:40px 13px 44px">
+    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:34px;line-height:0.95;letter-spacing:-0.025em;margin:0 0 20px;text-transform:uppercase">Привіт, я Лера. Ось <span style="color:#360202">чому</span> я зібрала цей інтенсив</h2>
+    <div style="position:relative;background-image:url('assets/paper-old.png');background-size:100% 100%;padding:38px 30px 34px;box-shadow:0 6px 22px rgba(22,21,20,0.22)">
+      <div style="display:grid;gap:15px">
+        <p style="margin:0;font-size:14.5px;line-height:1.5;font-weight:300;color:#3D3325">« Ти відпрацювала зміну, роблячи манікюр клієнткам, які теж не спали через тривогу. Лягла о 5 ранку через обстріл, а о 9 вже стояла на робочому місці. Оренда росте, розхідники дорожчають, а хтось із команди щойно поїхав — тому що більше не витримав.</p>
+        <p style="margin:0;font-size:14.5px;line-height:1.5;font-weight:300;color:#3D3325">Ми не будемо питати «чому твій салон не росте» так, ніби причина в тобі. Причина — у всьому, що зараз навколо. Питання не в тому, чи важко.</p>
+        <p style="margin:0;font-size:14.5px;line-height:1.5;font-weight:300;color:#3D3325">Питання в тому, як зробити так, щоб салон не розсипався разом з усім іншим — а став місцем, де і команда, і клієнтки можуть хоч трохи видихнути. »</p>
+      </div>
+    </div>
+    <p style="font-size:13px;line-height:1.5;font-weight:300;color:#9BA1BA;margin:20px 0 12px">На інтенсиві поговоримо саме про це:</p>
+    <div style="display:grid;gap:12px">
+      <div style="display:flex;gap:10px;font-size:13.5px;line-height:1.5;font-weight:300"><span style="color:#9BA1BA">—</span><span>як утримувати команду і знаходити нових класних спеціалістів — тих, хто не виснажує запитаннями, а сам пропонує рішення і працює на результат</span></div>
+      <div style="display:flex;gap:10px;font-size:13.5px;line-height:1.5;font-weight:300"><span style="color:#9BA1BA">—</span><span>як створити сервіс, заради якого хочеться повертатись — не тільки за процедурою, а за відчуттям спокою</span></div>
+      <div style="display:flex;gap:10px;font-size:13.5px;line-height:1.5;font-weight:300"><span style="color:#9BA1BA">—</span><span>як залучати нових клієнтів навіть зараз, коли всі втомлені</span></div>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="background:#E4DFCF;padding:44px 13px 46px">
+    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:34px;line-height:0.95;letter-spacing:-0.025em;margin:0 0 22px;text-transform:uppercase">НЕсезон нічого не ламає — він просто показує, що і так було <span style="color:#360202">зламано</span></h2>
+    <div style="display:grid;gap:12px">
+      <div style="position:relative;background:#EAE6D8;border:1px solid #9BA1BA;border-top:2px solid #360202;border-radius:4px;padding:20px 18px;display:flex;gap:14px;align-items:flex-start">
+        <img src="assets/bulb-vintage.png" alt="" style="flex:0 0 26px;width:26px;height:26px;object-fit:contain;margin-top:-1px">
+        <p style="font-size:14px;line-height:1.5;font-weight:300;margin:0">Літо закінчилось — починається просадка по записам, і ти не знаєш, що з цим робити</p>
+      </div>
+      <div style="position:relative;background:#EAE6D8;border:1px solid #9BA1BA;border-top:2px solid #360202;border-radius:4px;padding:20px 18px;display:flex;gap:14px;align-items:flex-start">
+        <img src="assets/bulb-vintage.png" alt="" style="flex:0 0 26px;width:26px;height:26px;object-fit:contain;margin-top:-1px">
+        <p style="font-size:14px;line-height:1.5;font-weight:300;margin:0">Після чергового обстрілу — ще один майстер не витримує і звільняється</p>
+      </div>
+      <div style="position:relative;background:#EAE6D8;border:1px solid #9BA1BA;border-top:2px solid #360202;border-radius:4px;padding:20px 18px;display:flex;gap:14px;align-items:flex-start">
+        <img src="assets/bulb-vintage.png" alt="" style="flex:0 0 26px;width:26px;height:26px;object-fit:contain;margin-top:-1px">
+        <p style="font-size:14px;line-height:1.5;font-weight:300;margin:0">Клієнти масово їдуть з міста та країни, а нових знаходити все складніше</p>
+      </div>
+      <div style="position:relative;background:#EAE6D8;border:1px solid #9BA1BA;border-top:2px solid #360202;border-radius:4px;padding:20px 18px;display:flex;gap:14px;align-items:flex-start">
+        <img src="assets/bulb-vintage.png" alt="" style="flex:0 0 26px;width:26px;height:26px;object-fit:contain;margin-top:-1px">
+        <p style="font-size:14px;line-height:1.5;font-weight:300;margin:0">Ти знаєш, що потрібна система — але просто знову гасиш, замість того щоб її нарешті побудувати</p>
+      </div>
+      <div style="position:relative;background:#EAE6D8;border:1px solid #9BA1BA;border-top:2px solid #360202;border-radius:4px;padding:20px 18px;display:flex;gap:14px;align-items:flex-start">
+        <img src="assets/bulb-vintage.png" alt="" style="flex:0 0 26px;width:26px;height:26px;object-fit:contain;margin-top:-1px">
+        <p style="font-size:14px;line-height:1.5;font-weight:300;margin:0">Десь всередині сидить думка «може не зараз, переживу цей сезон і тоді» — і так щороку</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="background:#1E1C2E;color:#F2EEE2;padding:36px 13px;position:relative;overflow:hidden">
+    <img src="assets/crest-cream.png" alt="" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:118%;height:auto;opacity:0.07;pointer-events:none">
+    <div style="position:relative">
+      <h2 data-counter="1" style="font-family:'Prata',serif;font-weight:400;font-size:25px;line-height:1.34;letter-spacing:-0.01em;margin:0 0 28px">Ми опитали <span style="color:#B99A5B;font-size:19px;vertical-align:0.35em">{{ surveyCount }}</span> власниць салонів. <span style="border-bottom:1px solid rgba(185,154,91,0.6);padding-bottom:2px">Ось хто отримає найбільше від цього інтенсиву.</span></h2>
+      <div style="position:relative;display:grid;margin:0 -13px">
+        <div style="position:relative;z-index:1;margin-top:0">
+          <div style="height:34px;width:64%;background:#F2EEE2;border-radius:0 30px 0 0;margin-right:auto"></div>
+          <div style="background:#F2EEE2;padding:6px 20px 30px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center">
+            <div style="width:38px;height:38px;background:#360202;transform:rotate(45deg);display:flex;align-items:center;justify-content:center;margin-left:2px">
+              <span style="transform:rotate(-45deg);font-family:'Prata',serif;font-size:16px;color:#F2EEE2">1</span>
+            </div>
+            <p style="margin:0;font-size:14px;line-height:1.45;font-weight:300;color:rgba(30,28,46,0.78)">Ти власниця салону чи студії, і кожної осені відчуваєш той самий спад — а справжню причину так і не знайшла</p>
+          </div>
+        </div>
+        <div style="position:relative;z-index:2;margin-top:-26px">
+          <div style="height:34px;width:64%;background:#360202;border-radius:30px 0 0 0;margin-left:auto"></div>
+          <div style="background:#360202;padding:10px 20px 30px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center">
+            <div style="width:38px;height:38px;background:#B08A3E;transform:rotate(45deg);display:flex;align-items:center;justify-content:center;margin-left:2px">
+              <span style="transform:rotate(-45deg);font-family:'Prata',serif;font-size:16px;color:#1E1C2E">2</span>
+            </div>
+            <p style="margin:0;font-size:14px;line-height:1.45;font-weight:300;color:rgba(242,238,226,0.82)">Команда наче є, але тримається тільки поки ти особисто в салоні щодня</p>
+          </div>
+        </div>
+        <div style="position:relative;z-index:3;margin-top:-26px">
+          <div style="height:34px;width:64%;background:#EAE6D8;border-radius:0 30px 0 0;margin-right:auto"></div>
+          <div style="background:#EAE6D8;padding:10px 20px 30px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center">
+            <div style="width:38px;height:38px;background:#360202;transform:rotate(45deg);display:flex;align-items:center;justify-content:center;margin-left:2px">
+              <span style="transform:rotate(-45deg);font-family:'Prata',serif;font-size:16px;color:#F2EEE2">3</span>
+            </div>
+            <p style="margin:0;font-size:14px;line-height:1.45;font-weight:300;color:rgba(30,28,46,0.78)">Клієнти є, але потік нестабільний — то густо, то порожньо, без зрозумілої логіки</p>
+          </div>
+        </div>
+        <div style="position:relative;z-index:4;margin-top:-26px">
+          <div style="height:34px;width:64%;background:#360202;border-radius:30px 0 0 0;margin-left:auto"></div>
+          <div style="background:#360202;padding:10px 20px 30px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;border-radius:0 0 26px 26px">
+            <div style="width:38px;height:38px;background:#B08A3E;transform:rotate(45deg);display:flex;align-items:center;justify-content:center;margin-left:2px">
+              <span style="transform:rotate(-45deg);font-family:'Prata',serif;font-size:16px;color:#1E1C2E">4</span>
+            </div>
+            <p style="margin:0;font-size:14px;line-height:1.45;font-weight:300;color:rgba(242,238,226,0.85)">Хочеш зустріти зиму з планом, а не сам на сам із складнощами</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section data-reveal="1" style="background:#1E1C2E;padding:34px 13px 40px">
+    <button onClick="{{ openModal }}" style="width:100%;border:0;border-radius:44px;background:linear-gradient(180deg,#C08F35 0%,#9E6E22 100%);color:#F7F2E4;font-family:'Onest',sans-serif;font-size:17px;font-weight:500;letter-spacing:0.01em;padding:22px 18px;cursor:pointer;box-shadow:0 0 0 2px rgba(176,138,62,0.55),0 8px 22px rgba(16,15,26,0.45);transition:filter 0.3s ease" style-hover="filter:brightness(1.07)">Приєднатися до інтенсиву</button>
+    <div style="display:grid;grid-template-columns:1fr 118px;gap:8px;align-items:center;margin-top:22px">
+      <div style="position:relative;background:#E9E4D4;color:#1E1C2E;padding:20px 16px;text-align:center;clip-path:polygon(0 12px,12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px));box-shadow:0 6px 18px rgba(16,15,26,0.35)">
+        <div style="font-size:12.5px;line-height:1.45;font-weight:300">Спеціальна ціна діє до<br>закінчення таймеру</div>
+        <div style="font-family:'Prata',serif;font-size:30px;line-height:1;letter-spacing:-0.02em;margin-top:10px">{{ mm }}:{{ ss }}</div>
+      </div>
+      <div style="position:relative;width:118px;height:118px;border-radius:50%;background:#F2EEE2;border:2px solid #B08A3E;box-shadow:0 0 0 4px #1E1C2E,0 0 0 5px rgba(176,138,62,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg)">
+        <div style="position:absolute;inset:9px;border:1px dashed rgba(176,138,62,0.7);border-radius:50%"></div>
+        <div style="font-size:12px;color:#9BA1BA;text-decoration:line-through;font-weight:300">{{ oldPrice }}</div>
+        <div style="font-family:'Prata',serif;font-size:30px;line-height:1;color:#360202;margin-top:2px">{{ price }}</div>
+        <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#B08A3E;margin-top:4px">Beauty MBA</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="padding:44px 13px 44px">
+    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:36px;line-height:0.95;letter-spacing:-0.025em;margin:0 0 24px;text-transform:uppercase">3 дні, які змінять <span style="color:#360202">все!</span></h2>
+    <div style="display:grid;gap:14px">
+      <sc-for list="{{ results }}" as="r" hint-placeholder-count="5">
+        <div style="display:flex;gap:11px;align-items:flex-start">
+          <img src="assets/key-gold.png" alt="" style="flex:0 0 auto;width:auto;height:32px;object-fit:contain;margin-top:1px">
+          <p style="margin:0;font-size:14px;line-height:1.55;font-weight:300">{{ r.pre }}<span style="color:#360202;letter-spacing:0.04em">{{ r.mark }}</span>{{ r.post }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+<section data-reveal="1" style="background:#1E1C2E;padding:34px 13px 40px">
+    <button onClick="{{ openModal }}" style="width:100%;border:0;border-radius:44px;background:linear-gradient(180deg,#C08F35 0%,#9E6E22 100%);color:#F7F2E4;font-family:'Onest',sans-serif;font-size:17px;font-weight:500;letter-spacing:0.01em;padding:22px 18px;cursor:pointer;box-shadow:0 0 0 2px rgba(176,138,62,0.55),0 8px 22px rgba(16,15,26,0.45);transition:filter 0.3s ease" style-hover="filter:brightness(1.07)">Приєднатися до інтенсиву</button>
+    <div style="display:grid;grid-template-columns:1fr 118px;gap:8px;align-items:center;margin-top:22px">
+      <div style="position:relative;background:#E9E4D4;color:#1E1C2E;padding:20px 16px;text-align:center;clip-path:polygon(0 12px,12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px));box-shadow:0 6px 18px rgba(16,15,26,0.35)">
+        <div style="font-size:12.5px;line-height:1.45;font-weight:300">Спеціальна ціна діє до<br>закінчення таймеру</div>
+        <div style="font-family:'Prata',serif;font-size:30px;line-height:1;letter-spacing:-0.02em;margin-top:10px">{{ mm }}:{{ ss }}</div>
+      </div>
+      <div style="position:relative;width:118px;height:118px;border-radius:50%;background:#F2EEE2;border:2px solid #B08A3E;box-shadow:0 0 0 4px #1E1C2E,0 0 0 5px rgba(176,138,62,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg)">
+        <div style="position:absolute;inset:9px;border:1px dashed rgba(176,138,62,0.7);border-radius:50%"></div>
+        <div style="font-size:12px;color:#9BA1BA;text-decoration:line-through;font-weight:300">{{ oldPrice }}</div>
+        <div style="font-family:'Prata',serif;font-size:30px;line-height:1;color:#360202;margin-top:2px">{{ price }}</div>
+        <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#B08A3E;margin-top:4px">Beauty MBA</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="background:#E4DFCF;padding:44px 13px 46px;position:relative;overflow:hidden">
+    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:32px;line-height:0.98;letter-spacing:-0.025em;margin:0 0 24px;text-transform:uppercase">Хто проводить <span style="color:#360202">інтенсив</span></h2>
+    <div style="position:relative;display:flex;gap:16px;align-items:flex-start">
+      <div style="position:relative;flex:0 0 176px">
+        <div style="background:#F2EEE2;border:1px solid #9BA1BA;border-radius:3px;padding:9px 9px 12px;box-shadow:0 1px 6px rgba(22,21,20,0.16)">
+          <img src="assets/lera-chair.jpg" alt="Валерія Пономарьова" style="display:block;width:100%;height:196px;object-fit:cover;object-position:50% 18%;filter:contrast(1.02) saturate(0.96)">
+        </div>
+        <div style="text-align:center;font-family:'Prata',serif;font-size:15px;margin-top:12px">Валерія<br>Пономарьова</div>
+        <div style="text-align:center;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#9BA1BA;margin-top:7px">Власниця MANICULT</div>
+      </div>
+      <div style="flex:1;border-left:1px solid #9BA1BA;padding-left:14px;display:grid;gap:13px">
+        <p style="margin:0;font-size:12.5px;line-height:1.5;font-weight:300">У б'юті сфері більше 10 років</p>
+        <p style="margin:0;font-size:12.5px;line-height:1.5;font-weight:300">Шлях від кабінету 10 м² до студії з командою 20+ людей за 2 роки</p>
+        <p style="margin:0;font-size:12.5px;line-height:1.5;font-weight:300">Побудувала системи в Україні і ПАР з командами різного менталітету</p>
+        <p style="margin:0;font-size:12.5px;line-height:1.5;font-weight:300">Київський салон виріс під час війни — керує дистанційно 30 хв/день та генерує від <span style="color:#360202">$5000</span> чистого прибутку</p>
+      </div>
+    </div>
+    <div style="position:relative;display:grid;gap:13px;margin-top:16px;border-left:1px solid #9BA1BA;padding-left:14px">
+      <p style="margin:0;font-size:13px;line-height:1.5;font-weight:300">Кейс <span style="color:#360202;letter-spacing:0.04em">MANICULT</span> Кейптаун — оборот <span style="color:#360202">$55k+</span> з 0 за перші місяці в новому салоні</p>
+      <p style="margin:0;font-size:13px;line-height:1.5;font-weight:300">Результат учениць: ріст доходу <span style="color:#360202">×2–×4</span> за 3 місяці</p>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="padding:44px 13px 44px;">
+    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:34px;line-height:0.95;letter-spacing:-0.025em;margin:0 0 22px;text-transform:uppercase">3 дні. Кожен з конкретною <span style="color:#360202">метою.</span></h2>
+    <div style="display:grid">
+      <div style="position:relative;z-index:3;background:linear-gradient(180deg,#2C2A40 0%,#1E1C2E 34%,#17162336 100%),#1E1C2E;color:#F2EEE2;border-radius:20px 20px 3px 3px;overflow:hidden;box-shadow:0 -5px 14px rgba(20,19,30,0.28)">
+        <button onClick="{{ toggle1 }}" style="width:100%;background:none;border:0;color:inherit;font-family:'Onest',sans-serif;text-align:left;padding:26px 18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <span style="display:block">
+            <span style="display:block;font-family:'Prata',serif;font-size:21px;line-height:1.15;letter-spacing:-0.01em;text-transform:uppercase">Анатомія салону</span>
+            <span style="display:block;font-size:11px;font-weight:300;letter-spacing:0.06em;color:#9BA1BA;margin-top:7px">/ День I</span>
+          </span>
+          <span style="flex:0 0 34px;width:34px;height:34px;border:1px solid rgba(242,238,226,0.45);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:#F2EEE2">{{ sign1 }}</span>
+        </button>
+        <sc-if value="{{ open1 }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:0 18px 22px">
+            <p style="margin:0 0 12px;font-size:13.5px;line-height:1.6;font-weight:300">Розберемо, що насправді відбувається з грошима, командою і клієнтами твого салону прямо зараз, і знайдемо три головні витоки — грошей, часу і ресурсу. НЕсезон нічого не ламає у твоєму салоні — він просто показує, де система вже давала збій.</p>
+            <p style="margin:0 0 12px;font-size:13.5px;line-height:1.6;font-weight:300">У фіналі дня в кожної буде власний план на 30 днів: що з командою, що з клієнтами, що з фінансами — і які рішення приймати вже зараз.</p>
+            <p style="margin:0;font-size:12.5px;line-height:1.6;color:#9BA1BA;letter-spacing:0.02em;font-style:italic">Мета дня — не пережити цю осінь, а зібрати салон так, щоб наступна нестабільність, яка б вона не була, більше не ставила бізнес під питання.</p>
+          </div>
+        </sc-if>
+      </div>
+      <div style="position:relative;z-index:2;margin-top:-12px;background:linear-gradient(180deg,#4C0505 0%,#360202 34%,#2A0202 100%);color:#F2EEE2;border-radius:20px 20px 3px 3px;overflow:hidden;box-shadow:0 -5px 14px rgba(20,19,30,0.28)">
+        <button onClick="{{ toggle2 }}" style="width:100%;background:none;border:0;color:#F2EEE2;font-family:'Onest',sans-serif;text-align:left;padding:26px 18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <span style="display:block">
+            <span style="display:block;font-family:'Prata',serif;font-size:21px;line-height:1.15;letter-spacing:-0.01em;text-transform:uppercase">Екскурсія в MANICULT</span>
+            <span style="display:block;font-size:11px;font-weight:300;letter-spacing:0.06em;color:#C2A8A8;margin-top:7px">/ День II</span>
+          </span>
+          <span style="flex:0 0 34px;width:34px;height:34px;border:1px solid rgba(242,238,226,0.45);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:#F2EEE2">{{ sign2 }}</span>
+        </button>
+        <sc-if value="{{ open2 }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:0 18px 22px">
+            <p style="margin:0;font-size:13.5px;line-height:1.6;font-weight:300">Як реально виглядають команда, записи і клієнтська база Лери в найтихіші місяці. Без прикрас — живий приклад салону, який тримає темп без постійної присутності власниці, навіть коли навколо все важко.</p>
+          </div>
+        </sc-if>
+      </div>
+      <div style="position:relative;z-index:1;margin-top:-12px;background:linear-gradient(180deg,#6E7288 0%,#575D74 36%,#464B60 100%);color:#F2EEE2;border-radius:20px 20px 3px 3px;overflow:hidden;box-shadow:0 -5px 14px rgba(20,19,30,0.28)">
+        <button onClick="{{ toggle3 }}" style="width:100%;background:none;border:0;color:inherit;font-family:'Onest',sans-serif;text-align:left;padding:26px 18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <span style="display:block">
+            <span style="display:block;font-family:'Prata',serif;font-size:21px;line-height:1.15;letter-spacing:-0.01em;text-transform:uppercase">Розбір кейсів</span>
+            <span style="display:block;font-size:11px;font-weight:300;letter-spacing:0.06em;color:#E0DCCC;margin-top:7px">/ День III</span>
+          </span>
+          <span style="flex:0 0 34px;width:34px;height:34px;border:1px solid rgba(242,238,226,0.55);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:#F2EEE2">{{ sign3 }}</span>
+        </button>
+        <sc-if value="{{ open3 }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:0 18px 22px">
+            <p style="margin:0;font-size:13.5px;line-height:1.6;font-weight:300">Лера наживо розбирає реальні ситуації учасниць інтенсиву — на прикладах з анкет і чату. Побачиш, як принципи з дня 1 і 2 працюють на практиці, і зможеш накласти їх на свій салон.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+<section data-reveal="1" style="background:#1E1C2E;padding:34px 13px 40px">
+    <button onClick="{{ openModal }}" style="width:100%;border:0;border-radius:44px;background:linear-gradient(180deg,#C08F35 0%,#9E6E22 100%);color:#F7F2E4;font-family:'Onest',sans-serif;font-size:17px;font-weight:500;letter-spacing:0.01em;padding:22px 18px;cursor:pointer;box-shadow:0 0 0 2px rgba(176,138,62,0.55),0 8px 22px rgba(16,15,26,0.45);transition:filter 0.3s ease" style-hover="filter:brightness(1.07)">Приєднатися до інтенсиву</button>
+    <div style="display:grid;grid-template-columns:1fr 118px;gap:8px;align-items:center;margin-top:22px">
+      <div style="position:relative;background:#E9E4D4;color:#1E1C2E;padding:20px 16px;text-align:center;clip-path:polygon(0 12px,12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px));box-shadow:0 6px 18px rgba(16,15,26,0.35)">
+        <div style="font-size:12.5px;line-height:1.45;font-weight:300">Спеціальна ціна діє до<br>закінчення таймеру</div>
+        <div style="font-family:'Prata',serif;font-size:30px;line-height:1;letter-spacing:-0.02em;margin-top:10px">{{ mm }}:{{ ss }}</div>
+      </div>
+      <div style="position:relative;width:118px;height:118px;border-radius:50%;background:#F2EEE2;border:2px solid #B08A3E;box-shadow:0 0 0 4px #1E1C2E,0 0 0 5px rgba(176,138,62,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg)">
+        <div style="position:absolute;inset:9px;border:1px dashed rgba(176,138,62,0.7);border-radius:50%"></div>
+        <div style="font-size:12px;color:#9BA1BA;text-decoration:line-through;font-weight:300">{{ oldPrice }}</div>
+        <div style="font-family:'Prata',serif;font-size:30px;line-height:1;color:#360202;margin-top:2px">{{ price }}</div>
+        <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#B08A3E;margin-top:4px">Beauty MBA</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="background:#E4DFCF;padding:44px 0 46px 13px">
+    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:32px;line-height:0.98;letter-spacing:-0.025em;margin:0 20px 20px 0;text-transform:uppercase">Що кажуть ті, хто вже був на BEAUTISFACTION</h2>
+    <div class="bf-scroll" style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 13px 6px 0;scrollbar-width:none;align-items:flex-start">
+      <div style="flex:0 0 auto;width:340px;scroll-snap-align:start;background:#F7F4EA;border:1px solid rgba(155,161,186,0.5);border-radius:4px;padding:9px;box-shadow:0 4px 14px rgba(22,21,20,0.12);transform:rotate(-0.5deg)">
+        <img src="assets/review-01.png" alt="Відгук учасниці" style="display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:2px;background:#EAE6D8">
+      </div>
+      <div style="flex:0 0 auto;width:340px;scroll-snap-align:start;background:#F7F4EA;border:1px solid rgba(155,161,186,0.5);border-radius:4px;padding:9px;box-shadow:0 4px 14px rgba(22,21,20,0.12);transform:rotate(0.5deg)">
+        <img src="assets/review-03.png" alt="Відгук учасниці" style="display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:2px;background:#EAE6D8">
+      </div>
+      <div style="flex:0 0 auto;width:340px;scroll-snap-align:start;background:#F7F4EA;border:1px solid rgba(155,161,186,0.5);border-radius:4px;padding:9px;box-shadow:0 4px 14px rgba(22,21,20,0.12);transform:rotate(-0.5deg)">
+        <img src="assets/review-05.png" alt="Відгук учасниці" style="display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:2px;background:#EAE6D8">
+      </div>
+      <div style="flex:0 0 auto;width:340px;scroll-snap-align:start;background:#F7F4EA;border:1px solid rgba(155,161,186,0.5);border-radius:4px;padding:9px;box-shadow:0 4px 14px rgba(22,21,20,0.12);transform:rotate(0.5deg)">
+        <img src="assets/review-06.png" alt="Відгук учасниці" style="display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:2px;background:#EAE6D8">
+      </div>
+      <div style="flex:0 0 auto;width:340px;scroll-snap-align:start;background:#F7F4EA;border:1px solid rgba(155,161,186,0.5);border-radius:4px;padding:9px;box-shadow:0 4px 14px rgba(22,21,20,0.12);transform:rotate(-0.5deg)">
+        <img src="assets/review-07.png" alt="Відгук учасниці" style="display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:2px;background:#EAE6D8">
+      </div>
+      <div style="flex:0 0 auto;width:340px;scroll-snap-align:start;background:#F7F4EA;border:1px solid rgba(155,161,186,0.5);border-radius:4px;padding:9px;box-shadow:0 4px 14px rgba(22,21,20,0.12);transform:rotate(0.5deg)">
+        <img src="assets/review-08.png" alt="Відгук учасниці" style="display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:2px;background:#EAE6D8">
+      </div>
+      <div style="flex:0 0 auto;width:340px;scroll-snap-align:start;background:#F7F4EA;border:1px solid rgba(155,161,186,0.5);border-radius:4px;padding:9px;box-shadow:0 4px 14px rgba(22,21,20,0.12);transform:rotate(-0.5deg)">
+        <img src="assets/review-09.png" alt="Відгук учасниці" style="display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:2px;background:#EAE6D8">
+      </div>
+      <div style="flex:0 0 auto;width:340px;scroll-snap-align:start;background:#F7F4EA;border:1px solid rgba(155,161,186,0.5);border-radius:4px;padding:9px;box-shadow:0 4px 14px rgba(22,21,20,0.12);transform:rotate(0.5deg)">
+        <img src="assets/review-12.png" alt="Відгук учасниці" style="display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:2px;background:#EAE6D8">
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="padding:44px 13px 48px">
+    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:34px;line-height:0.95;letter-spacing:-0.025em;margin:0 0 26px;text-transform:uppercase">Поринь у <span style="color:#360202">BEAUTISFACTION 3.0</span></h2>
+    <div style="background:#EAE6D8;padding:14px 16px;position:relative;border:34px solid transparent;border-image:url('assets/frame-gold-crop.png') 280 / 34px stretch">
+      <div style="display:grid;gap:11px;margin-bottom:24px">
+        <div style="display:grid;grid-template-columns:14px 1fr;gap:9px;align-items:start"><span style="color:#360202;font-size:12px;line-height:1.55">✓</span><p style="margin:0;font-size:13.5px;line-height:1.5;font-weight:300">Доступ до 3 днів інтенсиву</p></div>
+        <div style="display:grid;grid-template-columns:14px 1fr;gap:9px;align-items:start"><span style="color:#360202;font-size:12px;line-height:1.55">✓</span><p style="margin:0;font-size:13.5px;line-height:1.5;font-weight:300">Закритий чат учасниць</p></div>
+        <div style="display:grid;grid-template-columns:14px 1fr;gap:9px;align-items:start"><span style="color:#360202;font-size:12px;line-height:1.55">✓</span><p style="margin:0;font-size:13.5px;line-height:1.5;font-weight:300">Записи на 1 місяць</p></div>
+        <div style="display:grid;grid-template-columns:14px 1fr;gap:9px;align-items:start"><span style="color:#360202;font-size:12px;line-height:1.55">✓</span><p style="margin:0;font-size:13.5px;line-height:1.5;font-weight:300">Workbook <span style="color:#9BA1BA">(€27)</span></p></div>
+        <div style="display:grid;grid-template-columns:14px 1fr;gap:9px;align-items:start"><span style="color:#360202;font-size:12px;line-height:1.55">✓</span><p style="margin:0;font-size:13.5px;line-height:1.5;font-weight:300">Тест на архетип власниці <span style="color:#9BA1BA">(€27)</span></p></div>
+        <div style="display:grid;grid-template-columns:14px 1fr;gap:9px;align-items:start"><span style="color:#360202;font-size:12px;line-height:1.55">✓</span><p style="margin:0;font-size:13.5px;line-height:1.5;font-weight:300">Шаблон організаційної структури <span style="color:#9BA1BA">(€35)</span></p></div>
+      </div>
+      <div style="display:grid;gap:12px;margin-bottom:22px">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:baseline">
+          <div style="font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9BA1BA;line-height:1.4">Загальна цінність</div>
+          <div style="font-size:15px;color:#9BA1BA;text-decoration:line-through;font-weight:300">{{ oldPrice }}</div>
+        </div>
+        <div style="height:1px;background:rgba(54,2,2,0.18)"></div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center">
+          <div style="font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#360202;line-height:1.4">Оплата зараз</div>
+          <div style="font-family:'Prata',serif;font-size:42px;line-height:1;letter-spacing:-0.03em;color:#360202">{{ price }}</div>
+        </div>
+      </div>
+      <button onClick="{{ openModal }}" style="width:100%;border:0;border-radius:4px;background:#360202;color:#F2EEE2;font-family:'Onest',sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:19px;cursor:pointer;transition:background 0.3s ease" style-hover="background:#1E1C2E">Приєднатись за {{ price }} →</button>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="position:relative;padding:0;overflow:hidden;background:#1E1C2E">
+    <div style="position:absolute;inset:0;background-image:url('assets/ref-hero-bg.png');background-size:cover;background-position:center 42%;filter:grayscale(0.6) brightness(0.62)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,28,46,0.55) 0%,rgba(30,28,46,0.42) 40%,rgba(30,28,46,0.8) 100%)"></div>
+
+    <div style="position:relative;padding:34px 13px 30px">
+      <div style="position:relative;background:linear-gradient(180deg,#C9A87C 0%,#BD9A6C 100%);border-radius:5px;padding:96px 14px 104px;box-shadow:0 10px 34px rgba(16,15,26,0.4);overflow:hidden">
+        <div style="position:absolute;left:0;right:0;top:0;height:172px;background:linear-gradient(180deg,#D3B489 0%,#C4A276 100%);clip-path:polygon(0 0,100% 0,50% 100%);border-radius:5px 5px 0 0"></div>
+
+        <div data-letter="1" style="position:relative;z-index:2;background:#F7F4EA;color:#1E1C2E;padding:34px 22px 30px;text-align:center;box-shadow:0 3px 16px rgba(16,15,26,0.22);transform:{{ letterY }};transition:transform 0.15s linear">
+          <div style="position:absolute;left:0;right:0;top:-7px;height:8px;background:radial-gradient(circle at 8px 8px,#F7F4EA 7.2px,transparent 7.6px) repeat-x;background-size:16px 16px"></div>
+          <h2 style="font-family:'Prata',serif;font-weight:400;font-size:29px;line-height:1.06;letter-spacing:-0.01em;margin:0;text-transform:uppercase">Почни осінь<br>із системою</h2>
+          <p style="font-size:14px;line-height:1.55;font-weight:300;margin:18px 0 0">Ти і так тримаєш на собі більше, ніж має тримати одна людина. Давай хоча б систему салону зробимо так, щоб вона тримала тебе — а не навпаки.</p>
+          <div style="display:grid;gap:10px;margin-top:24px">
+            <button onClick="{{ openModal }}" style="width:100%;border:1px solid #1E1C2E;border-radius:2px;background:transparent;color:#1E1C2E;font-family:'Prata',serif;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;padding:16px;cursor:pointer;transition:background 0.3s ease,color 0.3s ease" style-hover="background:#1E1C2E;color:#F7F4EA">Оплата {{ price }}</button>
+          </div>
+        </div>
+
+        <div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,#C6A276 0%,#B8956A 100%);clip-path:polygon(0 100%,0 26%,50% 0,100% 26%,100% 100%);border-radius:0 0 5px 5px;z-index:1"></div>
+        <img src="assets/wax-seal-red.png" alt="" style="position:absolute;left:16px;bottom:10px;width:78px;height:78px;object-fit:contain;z-index:4;transform:rotate(-6deg)">
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#1E1C2E;color:#9BA1BA;padding:26px 13px 36px">
+    <div style="font-family:'Prata',serif;font-size:15px;letter-spacing:0.1em;color:#F2EEE2;text-transform:uppercase">BEAUTY MBA · BEAUTISFACTION 3.0</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase">
+      <a href="https://t.me/+2wB8GPyYH6JhMTJi" target="_blank" style="color:#9BA1BA">Telegram</a>
+      <a href="https://www.instagram.com/valeria.vulakh/" target="_blank" style="color:#9BA1BA">Instagram</a>
+      <a href="https://docs.google.com/document/d/1wwd2imhoLRCEoE7s7H5dZQS_jwqx_HP_NdiccDPbURI/edit?usp=sharing" target="_blank" style="color:#9BA1BA">Політика конфіденційності</a>
+      <a href="https://docs.google.com/document/d/1akmkH76QPV1oV2q8fft9r3eNwJqDPt1HiRpdWw8ELXY/edit?usp=sharing" target="_blank" style="color:#9BA1BA">Публічна оферта</a>
+    </div>
+    <div style="height:1px;background:rgba(155,161,186,0.3);margin:22px 0 20px"></div>
+    <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(155,161,186,0.7);margin-bottom:14px">Реквізити</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;line-height:1.5;font-weight:300;color:#F2EEE2">ФОП Пономарьова Валерія Юріївна</div>
+        <div style="font-size:11px;line-height:1.5;font-weight:300;margin-top:4px">ІПН: 3251216881</div>
+      </div>
+      <div>
+        <div style="font-size:12px;line-height:1.5;font-weight:300;color:#F2EEE2">ФОП Іванова Алла Анатоліївна</div>
+        <div style="font-size:11px;line-height:1.5;font-weight:300;margin-top:4px">ІПН: 2416700220</div>
+      </div>
+    </div>
+    <div style="font-size:10.5px;line-height:1.6;font-weight:300;margin-top:20px;opacity:0.65">Старт {{ eventDate }} о {{ eventTime }} (Київ) · Онлайн</div>
+  </footer>
+
+  <sc-if value="{{ modal }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:50;background:rgba(30,28,46,0.75);display:flex;align-items:flex-end;justify-content:center">
+      <div style="width:420px;max-width:100%;background:#F2EEE2;padding:28px 20px 32px;border-top:2px solid #360202">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div>
+            <div style="font-family:'Prata',serif;font-size:26px;line-height:1;letter-spacing:-0.02em;text-transform:uppercase">Beautisfaction</div>
+          </div>
+          <button onClick="{{ closeModal }}" style="background:none;border:0;font-size:22px;line-height:1;color:#9BA1BA;cursor:pointer;padding:4px">×</button>
+        </div>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:24px 0 8px;text-align:center">
+            <img src="assets/wax-seal-red.png" alt="" style="width:92px;height:92px;object-fit:contain;margin-bottom:12px">
+            <p style="font-family:'Prata',serif;font-size:20px;line-height:1.3;margin:0 0 10px">Місце за тобою</p>
+            <p style="font-size:13px;line-height:1.6;font-weight:300;margin:0">Посилання на ефіри надійде в Telegram перед стартом.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;gap:12px">
+            <input value="{{ fName }}" onChange="{{ setName }}" placeholder="Ім'я" style="width:100%;box-sizing:border-box;background:#EAE6D8;border:1px solid #9BA1BA;border-radius:4px;padding:15px 14px;font-family:'Onest',sans-serif;font-size:14px;font-weight:300;color:#1E1C2E;outline:none">
+            <input value="{{ fContact }}" onChange="{{ setContact }}" placeholder="Telegram або e-mail" style="width:100%;box-sizing:border-box;background:#EAE6D8;border:1px solid #9BA1BA;border-radius:4px;padding:15px 14px;font-family:'Onest',sans-serif;font-size:14px;font-weight:300;color:#1E1C2E;outline:none">
+            <button onClick="{{ submit }}" style="width:100%;border:0;border-radius:4px;background:#360202;color:#F2EEE2;font-family:'Onest',sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:18px;cursor:pointer;transition:background 0.3s ease" style-hover="background:#1E1C2E">Зареєструватись →</button>
+            <p style="margin:2px 0 0;font-size:10.5px;line-height:1.5;font-weight:300;color:#9BA1BA;text-align:center">Натискаючи, ти погоджуєшся з політикою конфіденційності</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:900},&quot;eventDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;8 вересня&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;eventTime&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;18:00&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;price&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;7€&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;oldPrice&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;€186&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;surveyCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:582,&quot;min&quot;:1,&quot;max&quot;:5000,&quot;tsType&quot;:&quot;number&quot;},&quot;timerMinutes&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:5,&quot;min&quot;:1,&quot;max&quot;:60,&quot;unit&quot;:&quot;хв&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { left: 300000, open: 1, modal: false, sent: false, name: '', contact: '', sticky: false, count: null, letterY: 104 };
+
+  constructor(props) {
+    super(props);
+    this.letterRef = { current: null };
+    this.counterRef = { current: null };
+    this.setLetter = (el) => { this.letterRef.current = el; };
+    this.setCounter = (el) => { this.counterRef.current = el; };
+  }
+
+  componentDidMount() {
+    const span = (this.props.timerMinutes ?? 5) * 60000;
+    let dl = Number(localStorage.getItem('bf3-deadline') || 0);
+    if (!dl || dl <= Date.now() + 500 || dl - Date.now() > span + 2000) { dl = Date.now() + span; localStorage.setItem('bf3-deadline', String(dl)); }
+    this.deadline = dl;
+    window.__bfHost = this;
+    if (!window.__bfLoop) {
+      window.__bfLoop = setInterval(() => {
+        const h = window.__bfHost;
+        if (!h) return;
+        h.setState({ left: Math.max(0, h.deadline - Date.now()) });
+        h.reveal();
+      }, 100);
+    }
+    this.onScroll = () => this.reveal();
+    this.reveal();
+    window.addEventListener('scroll', this.onScroll, { passive: true, capture: true });
+    document.addEventListener('scroll', this.onScroll, { passive: true, capture: true });
+  }
+
+  reveal() {
+    const sy = window.scrollY || document.documentElement.scrollTop || 0;
+    const sticky = sy > window.innerHeight * 0.9;
+    const L = document.querySelector('[data-letter]');
+    let off = 104;
+    if (L) {
+      const r = L.getBoundingClientRect(), vh = window.innerHeight;
+      const base = r.top - (Number.isFinite(this.state.letterY) ? this.state.letterY : 104);
+      const k = Math.min(1, Math.max(0, (vh - base) / (vh * 0.72)));
+      off = Math.round(104 * (1 - k));
+    }
+    if (sticky !== this.state.sticky || off !== this.state.letterY) this.setState({ sticky, letterY: off });
+    const c = document.querySelector('[data-counter]');
+    if (!this.counting && (!c || c.getBoundingClientRect().top < window.innerHeight * 0.85)) this.countUp();
+  }
+
+  countUp() {
+    this.counting = true;
+    const target = this.props.surveyCount ?? 582, dur = 1400, t0 = Date.now();
+    this.countInt = setInterval(() => {
+      const k = Math.min(1, (Date.now() - t0) / dur);
+      this.setState({ count: Math.round(target * (1 - Math.pow(1 - k, 3))) });
+      if (k >= 1) clearInterval(this.countInt);
+    }, 40);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.countInt);
+    document.removeEventListener('scroll', this.onScroll, true);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  pad(n) { return String(n).padStart(2, '0'); }
+
+  renderVals() {
+    window.__bfHost = this;
+    if (!this.deadline) {
+      const span = (this.props.timerMinutes ?? 5) * 60000;
+      let dl = Number(localStorage.getItem('bf3-deadline') || 0);
+      if (!dl || dl <= Date.now() + 500 || dl - Date.now() > span + 2000) { dl = Date.now() + span; localStorage.setItem('bf3-deadline', String(dl)); }
+      this.deadline = dl;
+    }
+    if (!window.__bfLoop) {
+      window.__bfLoop = setInterval(() => {
+        const h = window.__bfHost;
+        if (!h) return;
+        const span = (h.props.timerMinutes ?? 5) * 60000;
+        if (!h.deadline || h.deadline - Date.now() <= 0) { h.deadline = Date.now() + span; localStorage.setItem('bf3-deadline', String(h.deadline)); }
+        h.setState({ left: Math.max(0, h.deadline - Date.now()) });
+        h.reveal();
+      }, 100);
+    }
+    const t = this.state.left;
+    const toggle = (n) => () => this.setState(st => ({ open: st.open === n ? 0 : n }));
+    return {
+      mm: this.pad(Math.floor(t / 60000)),
+      ss: this.pad(Math.floor(t / 1000) % 60),
+      ms: this.pad(Math.floor((t % 1000) / 10)),
+      eventDate: this.props.eventDate ?? '8 вересня',
+      eventTime: this.props.eventTime ?? '18:00',
+      price: this.props.price ?? '7€',
+      oldPrice: this.props.oldPrice ?? '€186',
+      surveyCount: this.state.count ?? (this.props.surveyCount ?? 582),
+      letterY: 'translateY(' + (Number.isFinite(this.state.letterY) ? this.state.letterY : 104) + 'px)',
+      open1: this.state.open === 1, open2: this.state.open === 2, open3: this.state.open === 3,
+      sign1: this.state.open === 1 ? '−' : '+', sign2: this.state.open === 2 ? '−' : '+', sign3: this.state.open === 3 ? '−' : '+',
+      toggle1: toggle(1), toggle2: toggle(2), toggle3: toggle(3),
+      modal: this.state.modal, sent: this.state.sent, notSent: !this.state.sent, showSticky: this.state.sticky,
+      openModal: () => this.setState({ modal: true }),
+      closeModal: () => this.setState({ modal: false }),
+      fName: this.state.name, fContact: this.state.contact,
+      setName: (e) => this.setState({ name: e.target.value }),
+      setContact: (e) => this.setState({ contact: e.target.value }),
+      submit: () => this.setState({ sent: true }),
+      results: [
+        { pre: 'Побачиш, що в твоєму салоні тримається на системі, а що — тільки на тобі особисто', mark: '', post: '' },
+        { pre: 'Зрозумієш, чому команда і клієнти «просідають» саме зараз — і що з цим реально робити', mark: '', post: '' },
+        { pre: 'Отримаєш чесну відповідь: чи витримає твій салон сезонний спад без твого щоденного втручання', mark: '', post: '' },
+        { pre: 'Побачиш зсередини, як виглядають команда і клієнтська база, які тримаються попри все — наживо, на прикладі мого салону ', mark: 'MANICÚLT', post: '' },
+        { pre: 'Отримаєш конкретні фішки, як утримувати команду, знаходити нових спеціалістів і давати сервіс, заради якого хочеться повертатись', mark: '', post: '' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
