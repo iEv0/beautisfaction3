@@ -566,7 +566,7 @@ class Component extends DCLogic {
       sign1: this.state.open === 1 ? '−' : '+', sign2: this.state.open === 2 ? '−' : '+', sign3: this.state.open === 3 ? '−' : '+',
       toggle1: toggle(1), toggle2: toggle(2), toggle3: toggle(3),
       modal: this.state.modal, sent: this.state.sent, notSent: !this.state.sent, showSticky: this.state.sticky,
-      openModal: () => this.setState({ modal: true }),
+      openModal: () => window.open('https://telegram.me/beautisfaction_bot?start=w59362302', '_blank'),
       closeModal: () => this.setState({ modal: false }),
       fName: this.state.name, fContact: this.state.contact,
       setName: (e) => this.setState({ name: e.target.value }),
