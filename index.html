@@ -83,11 +83,7 @@ src="https://www.facebook.com/tr?id=4595652107329898&ev=PageView&noscript=1"
     <button onClick="{{ openModal }}" style="position:relative;width:100%;margin-top:12px;border:0;border-radius:4px;background:#F2EEE2;color:#1E1C2E;font-family:'Onest',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;padding:20px;cursor:pointer;transition:background 0.3s ease,color 0.3s ease" style-hover="background:#360202;color:#F2EEE2"><span style="display:inline-flex;align-items:baseline;gap:7px;justify-content:center;flex-wrap:wrap">Взяти участь за<span style="text-decoration:line-through;opacity:0.5;font-weight:400">€186</span><span style="font-weight:600">7€</span>→</span></button>
 
     <div style="position:relative;margin-top:16px;text-align:center">
-      <div style="font-size:11px;line-height:1.5;font-weight:300;color:#9BA1BA">Знижка -96% та подарунки при оплаті до кінця таймера</div>
-      <div style="font-family:'Prata',serif;font-size:34px;line-height:1;letter-spacing:-0.02em;margin-top:10px;display:flex;align-items:baseline;gap:3px;justify-content:center">
-        <span>{{ mm }}</span><span style="color:#9BA1BA">:</span><span>{{ ss }}</span><span style="color:#9BA1BA">:</span><span style="color:#9BA1BA;font-size:20px">{{ ms }}</span>
-      </div>
-      <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(155,161,186,0.65);margin-top:16px">Понад 115 учасниць вже пройшли інтенсив</div>
+      <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(155,161,186,0.65)">Понад 115 учасниць вже пройшли інтенсив</div>
       <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:18px">
         <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;background:#F2EEE2;box-shadow:0 0 0 1px rgba(176,138,62,0.7),0 0 0 3px rgba(30,28,46,1),0 0 0 4px rgba(176,138,62,0.35)">
           <img src="assets/logo-elect.jpg" alt="G.Bar" style="display:block;width:100%;height:100%;object-fit:cover">
@@ -117,6 +113,10 @@ src="https://www.facebook.com/tr?id=4595652107329898&ev=PageView&noscript=1"
           <img src="assets/logo-poruch.jpg" alt="Elect Beauty Studio" style="display:block;width:100%;height:100%;object-fit:cover">
         </div>
       </div>
+      <div style="font-size:11px;line-height:1.5;font-weight:300;color:#9BA1BA;margin-top:24px">Знижка -96% та подарунки при оплаті до кінця таймера</div>
+      <div style="font-family:'Prata',serif;font-size:34px;line-height:1;letter-spacing:-0.02em;margin-top:10px;display:flex;align-items:baseline;gap:3px;justify-content:center">
+        <span>{{ mm }}</span><span style="color:#9BA1BA">:</span><span>{{ ss }}</span><span style="color:#9BA1BA">:</span><span style="color:#9BA1BA;font-size:20px">{{ ms }}</span>
+      </div>
     </div>
 
     <div style="position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:26px;padding-bottom:34px">
@@ -139,8 +139,25 @@ src="https://www.facebook.com/tr?id=4595652107329898&ev=PageView&noscript=1"
     </div>
   </div>
 
+  <section data-reveal="1" style="padding:44px 13px 44px">
+    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:36px;line-height:0.95;letter-spacing:-0.025em;margin:0 0 24px;text-transform:uppercase">3 дні, які змінять <span style="color:#360202">все!</span></h2>
+    <div style="display:grid;gap:14px">
+      <sc-for list="{{ results }}" as="r" hint-placeholder-count="5">
+        <div style="display:flex;gap:11px;align-items:flex-start">
+          <img src="assets/key-gold.png" alt="" style="flex:0 0 auto;width:auto;height:32px;object-fit:contain;margin-top:1px">
+          <p style="margin:0;font-size:14px;line-height:1.55;font-weight:300">{{ r.pre }}<span style="color:#360202;letter-spacing:0.04em">{{ r.mark }}</span>{{ r.post }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
   <section data-reveal="1" style="padding:40px 13px 44px">
     <h2 style="font-family:'Prata',serif;font-weight:400;font-size:34px;line-height:0.95;letter-spacing:-0.025em;margin:0 0 20px;text-transform:uppercase">Привіт, я Лера. Ось <span style="color:#360202">чому</span> я зібрала цей інтенсив</h2>
+    <div style="position:relative;border:1px solid #9BA1BA;border-radius:6px;overflow:hidden;box-shadow:0 4px 16px rgba(22,21,20,0.18);margin:4px 0 22px">
+      <div style="position:relative;width:100%;padding-top:56.25%">
+        <iframe src="https://www.youtube.com/embed/c2NFZOH4zSs" title="Відео від Валерії Пономарьової" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
     <p style="font-size:13px;line-height:1.5;font-weight:300;color:#9BA1BA;margin:20px 0 12px">На інтенсиві поговоримо саме про це:</p>
     <div style="display:grid;gap:12px">
       <div style="display:flex;gap:10px;font-size:13.5px;line-height:1.5;font-weight:300"><span style="color:#9BA1BA">—</span><span>як утримувати команду і знаходити нових класних спеціалістів — тих, хто не виснажує запитаннями, а сам пропонує рішення і працює на результат</span></div>
@@ -233,18 +250,6 @@ src="https://www.facebook.com/tr?id=4595652107329898&ev=PageView&noscript=1"
         <div style="font-family:'Prata',serif;font-size:30px;line-height:1;color:#360202;margin-top:2px">{{ price }}</div>
         <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#B08A3E;margin-top:4px">Beauty MBA</div>
       </div>
-    </div>
-  </section>
-
-  <section data-reveal="1" style="padding:44px 13px 44px">
-    <h2 style="font-family:'Prata',serif;font-weight:400;font-size:36px;line-height:0.95;letter-spacing:-0.025em;margin:0 0 24px;text-transform:uppercase">3 дні, які змінять <span style="color:#360202">все!</span></h2>
-    <div style="display:grid;gap:14px">
-      <sc-for list="{{ results }}" as="r" hint-placeholder-count="5">
-        <div style="display:flex;gap:11px;align-items:flex-start">
-          <img src="assets/key-gold.png" alt="" style="flex:0 0 auto;width:auto;height:32px;object-fit:contain;margin-top:1px">
-          <p style="margin:0;font-size:14px;line-height:1.55;font-weight:300">{{ r.pre }}<span style="color:#360202;letter-spacing:0.04em">{{ r.mark }}</span>{{ r.post }}</p>
-        </div>
-      </sc-for>
     </div>
   </section>
 
